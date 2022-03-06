@@ -41,6 +41,9 @@
 .hidden {
   display: none;
 }
+p {
+  color: #6f6363;
+}
 .heading {
   color: rgb(0, 100, 0);
   text-align: center;
