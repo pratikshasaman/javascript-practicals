@@ -14,3 +14,8 @@ for (let i = 0; i < btnClass.length; i++) {
     popupMain.classList.add("hidden");
   });
 }
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    popupMain.classList.add("hidden");
+  }
+});
