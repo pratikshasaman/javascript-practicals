@@ -23,9 +23,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.close {
+.close-icon {
   text-align: right;
+}
+.overflow {
+  position: absolute;
+}
+.top-section {
+  display: grid;
+  grid-template-columns: auto auto;
   cursor: pointer;
+}
+.title {
+  margin: 0;
+  text-align: center;
 }
 .hidden {
   display: none;
