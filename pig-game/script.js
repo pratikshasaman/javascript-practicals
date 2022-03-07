@@ -16,6 +16,8 @@ const init = function () {
   activePlayer = 0;
   score0.textContent = 0;
   score1.textContent = 0;
+  current0.textContent = 0;
+  current1.textContent = 0;
   diceEl.classList.add("hidden");
   player0.classList.add("player--active");
   player1.classList.remove("player--active");
