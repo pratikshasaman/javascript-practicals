@@ -162,3 +162,63 @@ runOnce();
 })();
 
 (() => console.log("3: Run Once"))();
+// ==============
+
+// First class function
+
+function morning(name) {
+  console.log(`Good Morning ${name}`);
+}
+function greet(name, func) {
+  return func(name);
+}
+
+console.log(greet("Jhon", morning));
+
+//Closure
+
+function laptop() {
+  var mouse = "black mouse";
+  function windows() {
+    var background = "black";
+    console.log(`My laptop background is ${background} and ${mouse}`);
+  }
+  return windows();
+}
+
+const CallFF = laptop();
+
+// CallFF();
+// ---------------------
+p = 2;
+function x1() {
+  var x = 2;
+  function z1() {
+    var z = 2;
+    console.log(x + z + p);
+  }
+  return z1();
+}
+
+var funcall = x1();
+// ================
+console.dir(x1);
+// ----------cLOUSER EXAMPLE---
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+  document.querySelector("body").addEventListener("click", function () {
+    header.style.color = "blue";
+  });
+})();
+
+// ------------------
+// Higher order function
+
+bodyParts = (nameF, nameS) => {
+  return function () {
+    console.log(`Body part includes ${nameF} and ${nameS}`);
+  };
+};
+const CallingB = bodyParts("eye", "ear");
+CallingB();
