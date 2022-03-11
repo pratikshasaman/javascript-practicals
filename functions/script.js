@@ -222,3 +222,17 @@ bodyParts = (nameF, nameS) => {
 };
 const CallingB = bodyParts("eye", "ear");
 CallingB();
+// ==============
+// First class function example 2
+
+functionCall = (name) => {
+  console.log(
+    `Hello ${name}...! Let's make the productive day and Proud of yourselfs`
+  );
+};
+greeting = (functionCall, nameM) => {
+  // return greeting(nameM, functionCall);
+  return functionCall(nameM);
+};
+
+console.log(greeting(functionCall, "Pratiksha"));
