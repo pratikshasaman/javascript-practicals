@@ -236,3 +236,28 @@ greeting = (functionCall, nameM) => {
 };
 
 console.log(greeting(functionCall, "Pratiksha"));
+
+// ======
+
+const lenovoDetails = {
+  ID: 2345,
+  name: "Lenovo",
+  color: "Silver",
+  details: [],
+  detail(windowsv, hdd) {
+    console.log(
+      `${this.name} color is ${this.color} and with ID ${this.ID}.\nDetails: \nWindows: ${windowsv}\n HDD: ${hdd}`
+    );
+  },
+};
+
+lenovoDetails.detail("Windows 11", "500GB");
+const info = lenovoDetails.detail;
+const acerDetails = {
+  ID: 1998,
+  name: "Acer",
+  color: "Black",
+  details: [],
+};
+
+info.call(acerDetails, "Windows 7", "1TB");
