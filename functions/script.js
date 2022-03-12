@@ -1,39 +1,39 @@
-// // Default parameter
-// details = [];
-// const person = function (namep, dob, add) {
-//   const persondetails = {
-//     namep,
-//     dob,
-//     add,
-//   };
-//   console.log(persondetails);
-//   details.push(persondetails);
-// };
+// Default parameter
+details = [];
+const person = function (namep, dob, add) {
+  const persondetails = {
+    namep,
+    dob,
+    add,
+  };
+  console.log(persondetails);
+  details.push(persondetails);
+};
 
-// person("pratiksha", "28-07-1998", "pune");
-// person("pratiksha", undefined, "solapur");
+person("pratiksha", "28-07-1998", "pune");
+person("pratiksha", undefined, "solapur");
 
-// // how passing arguments works value vs Referrence
+// how passing arguments works value vs Referrence
 
-// const namePer = "pratiksha";
-// const nameObj = {
-//   add: "pune",
-//   mobileno: 7836973826,
-// };
+const namePer = "pratiksha";
+const nameObj = {
+  add: "pune",
+  mobileno: 7836973826,
+};
 
-// const checkIn = function (firstname, nameObj) {
-//   firstname = "devi"; // original value that copying as it is.
-//   nameObj.add = "delhi"; // refrerence value pointing to the exact memory heap
-//   if (nameObj.add === "solapur") {
-//     alert("This is solapur");
-//   } else {
-//     alert(" It is pune");
-//   }
-// };
+const checkIn = function (firstname, nameObj) {
+  firstname = "devi"; // original value that copying as it is.
+  nameObj.add = "delhi"; // refrerence value pointing to the exact memory heap
+  if (nameObj.add === "solapur") {
+    alert("This is solapur");
+  } else {
+    alert(" It is pune");
+  }
+};
 
-// checkIn(namePer, nameObj);
-// console.log(namePer);
-// console.log(nameObj);
+checkIn(namePer, nameObj);
+console.log(namePer);
+console.log(nameObj);
 
 // -=====================
 
