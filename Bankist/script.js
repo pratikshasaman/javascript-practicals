@@ -59,7 +59,6 @@ const inputClosePin = document.querySelector(".form__input--pin");
 // Login functionality
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log("here");
   currentAccount = accounts.find(
     (acc) => acc.username === inputLoginUsername.value
   );
@@ -68,7 +67,8 @@ btnLogin.addEventListener("click", function (e) {
     nameu = currentAccount.owner.split(" ")[0];
     labelWelcome.textContent = `Good to see you, ${nameu}👋`;
     containerApp.style.opacity = 100;
-    inputLoginPin.value = inputLoginUsername.value = " ";
+
+    inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
     // Update UI
     updateUI(currentAccount);
@@ -131,10 +131,7 @@ const displaySummary = function (acc) {
 
 // Total addition display on the top
 const calcDisplayBalance = function (acc) {
-  // acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  console.log(acc.balance);
-
   labelBalance.textContent = `${acc.balance}`;
 };
 
@@ -154,31 +151,43 @@ btnTransfer.addEventListener("click", function (e) {
     receiverAcc &&
     receiverAcc.username !== currentAccount
   ) {
-    console.log("transfer is valid");
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
-
+    inputTransferTo.value = inputTransferAmount.value = "";
     updateUI(currentAccount);
   }
 });
 
+// Loan event
 btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
   const loanAmount = Number(inputLoanAmount.value);
-  if (currentAccount.balance > (loanAmount * 10) / 100) {
+
+  if (
+    loanAmount > 0 &&
+    currentAccount.movements.some((mov) => mov > loanAmount * 0.1)
+  ) {
     currentAccount.movements.push(loanAmount);
-    updateUI(currentAccount);
   }
+  inputLoanAmount.value = "";
+  updateUI(currentAccount);
 });
 
+// Delete account
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
   if (
     inputCloseUsername.value == currentAccount.username &&
     inputClosePin.value == currentAccount.pin
   ) {
-    console.log("delete me");
-  }
+    // Search for index
+    const index = accounts.findIndex(function (acc) {
+      return currentAccount.username === inputCloseUsername.value;
+    });
 
-  // if(
+    // delete
+    accounts.splice(index, 1);
+    // Update UI
+    containerApp.style.opacity = 0;
+  }
 });
