@@ -191,3 +191,90 @@ console.log(withd2);
 // filter function
 const bb = movements3.filter((value) => value < 0);
 console.log(bb);
+
+console.log(movements3);
+var total = 0;
+for (const mov of movements3) {
+  total = total + mov;
+}
+console.log(total);
+
+//
+var total1 = 0;
+movements3.forEach(function (value, key, movements3) {
+  console.log((total1 += value));
+});
+console.log(`This is final: ${total1}`);
+// ==================
+var total3 = 0;
+const maps = movements3.map(function (value) {
+  return (total3 += value);
+  // console.log(total3);
+});
+console.log(maps);
+//
+var total4 = 0;
+const maps1 = movements3.map((value) => (total4 += value));
+console.log(maps1);
+// Reduce method
+
+const q = movements3.reduce(function (total5, currentValue, currentIndex, arr) {
+  return (total5 += currentValue);
+}, 0);
+
+console.log(q);
+
+//
+const qw = movements3.reduce(
+  (total5, currentValue) => (total5 += currentValue)
+);
+console.log(qw);
+
+// ===============mAXIMUM VALUE CHECK
+const maxmum = movements3.reduce(function (total5, currentValues) {
+  // console.log(total5);
+  // console.log(currentValues);
+  if (total5 > currentValues) {
+    return total5;
+  } else {
+    return currentValues;
+  }
+});
+console.log(maxmum);
+
+//
+/* 
+Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and calculate the average age of the dogs in their study.
+Create a function 'calcAverageHumanAge', which accepts an arrays of dog's ages ('ages'), and does the following things in order:
+1. Calculate the dog age in human years using the following formula: if the dog is <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4.
+2. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18 years old)
+3. Calculate the average human age of all adult dogs (you should already know from other challenges how we calculate averages 😉)
+4. Run the function for both test datasets
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+GOOD LUCK 😀
+*/
+var humanAge;
+const MorethanTwo = [];
+const lessthanTwo = [];
+let avg = 0;
+var joinArr = [];
+function calcAverageHumanAge(arr) {
+  arr.filter(function (value, key) {
+    if (value <= 2) {
+      humanAge = 2 * value;
+      lessthanTwo.push(humanAge);
+    } else {
+      humanAge = 16 + value * 4;
+      MorethanTwo.push(humanAge);
+    }
+  });
+  console.log(`Dog age less than two  - ${lessthanTwo}`);
+  console.log(`Dog age more than two ${MorethanTwo}`);
+  const avg = MorethanTwo.reduce(
+    (total_, currentValue) => (total_ + currentValue, 0) / MorethanTwo.length
+  );
+  return avg;
+}
+const he = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+console.log(he);
