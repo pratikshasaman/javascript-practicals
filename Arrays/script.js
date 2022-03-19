@@ -278,14 +278,21 @@
 // }
 // const he = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 // console.log(he);
-const movements = [200, -100, 340, 600, -23, 450, -25, -123];
-console.log(movements);
+// const movements = [200, -100, 340, 600, -23, 450, -25, -123];
+// console.log(movements);
 
-const someUse = movements.some((mov) => mov > 0);
-console.log(someUse);
-const everyUse = movements.every((mov) => mov > 0);
-console.log(everyUse);
+// const someUse = movements.some((mov) => mov > 0);
+// console.log(someUse);
+// const everyUse = movements.every((mov) => mov > 0);
+// console.log(everyUse);
 
-//  ===================flat()
-const arr = [1, 2, [[3, 4]], 5, "a", [4, "gg"], 4, "t"];
-console.log(arr.flat(2));
+// //  ===================flat()
+// const arr = [1, 2, [[3, 4]], 5, "a", [4, "gg"], 4, "t"];
+// console.log(arr.flat(2));
+
+const a = [1, 2, 3, 4, 5, 6];
+a.fill(4, 1, 4);
+console.log(a);
+
+const x = Array.from({ lenght: 7 }, () => 1);
+console.log(x);
